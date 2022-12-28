@@ -33,11 +33,11 @@ public class ItemReadModel {
         this.name = name;
     }
 
-    public String getCategoryName() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategoryName(final String categoryName) {
+    public void setCategory(final String categoryName) {
         this.category = categoryName;
     }
 
