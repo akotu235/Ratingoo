@@ -5,6 +5,7 @@ import io.github.akotu235.Ratingoo.logic.CategoryService;
 import io.github.akotu235.Ratingoo.model.CategoryRepository;
 import io.github.akotu235.Ratingoo.model.projection.CategoryReadModel;
 import io.github.akotu235.Ratingoo.model.projection.CategoryWriteModel;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +36,7 @@ class CategoryController {
     }
 
     @PostMapping("/categories")
-    ResponseEntity<CategoryReadModel> addCategory(@RequestBody CategoryWriteModel category) {
+    ResponseEntity<CategoryReadModel> addCategory(@RequestBody @Valid CategoryWriteModel category) {
         CategoryReadModel result = categoryService.createCategory(category);
         return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentContextPath().path("/categories/").build().toUri()).body(result);
     }

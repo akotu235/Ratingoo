@@ -1,6 +1,7 @@
 package io.github.akotu235.Ratingoo.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.Set;
 
@@ -10,6 +11,7 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotBlank(message = "Name cannot be empty.")
     private String name;
     @ManyToOne
     @JoinColumn(name = "category_id")

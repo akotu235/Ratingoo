@@ -1,6 +1,7 @@
 package io.github.akotu235.Ratingoo.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "votes")
@@ -11,6 +12,7 @@ public class Vote {
     @ManyToOne
     @JoinColumn(name = "item_id")
     private Item item;
+    @NotBlank(message = "Secret code cannot be empty.")
     private String secretCode;
     @Embedded
     private final Audit audit = new Audit();

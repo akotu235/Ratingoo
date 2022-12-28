@@ -2,8 +2,10 @@ package io.github.akotu235.Ratingoo.model.projection;
 
 
 import io.github.akotu235.Ratingoo.model.Category;
+import jakarta.validation.constraints.NotBlank;
 
 public class CategoryWriteModel {
+    @NotBlank(message = "Name cannot be empty.")
     private String name;
 
     public String getName() {

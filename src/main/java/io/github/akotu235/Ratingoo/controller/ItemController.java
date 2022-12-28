@@ -5,6 +5,7 @@ import io.github.akotu235.Ratingoo.logic.ItemService;
 import io.github.akotu235.Ratingoo.model.ItemRepository;
 import io.github.akotu235.Ratingoo.model.projection.ItemReadModel;
 import io.github.akotu235.Ratingoo.model.projection.ItemWriteModel;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,7 @@ class ItemController {
     }
 
     @PostMapping("/items")
-    ResponseEntity<ItemReadModel> createItem(@RequestBody ItemWriteModel item) {
+    ResponseEntity<ItemReadModel> createItem(@RequestBody @Valid ItemWriteModel item) {
         ItemReadModel result = itemService.createItem(item);
         //TODO: brak informacji o błędzie..
         return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentContextPath().path("/item/" + result.getId()).build().toUri()).body(result);
