@@ -16,6 +16,10 @@ public class Vote {
     Vote() {
     }
 
+    public Vote(final Item item, final String secretCode) {
+        this.item = item;
+        this.secretCode = secretCode;
+    }
 
     int getId() {
         return id;

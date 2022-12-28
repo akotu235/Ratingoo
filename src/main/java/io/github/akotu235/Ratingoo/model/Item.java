@@ -22,6 +22,10 @@ public class Item {
     Item() {
     }
 
+    public Item(final String name, final Category category) {
+        this.name = name;
+        this.category = category;
+    }
 
     public int getId() {
         return id;
@@ -39,7 +43,7 @@ public class Item {
         this.name = name;
     }
 
-    Category getCategory() {
+    public Category getCategory() {
         return category;
     }
 
@@ -47,11 +51,15 @@ public class Item {
         this.category = category;
     }
 
-    int getCounter() {
+    public int getCounter() {
         return counter;
     }
 
     void setCounter(final int counter) {
         this.counter = counter;
+    }
+
+    public void addVote() {
+        this.counter++;
     }
 }
