@@ -2,13 +2,13 @@ package io.github.akotu235.Ratingoo.model.projection;
 
 import io.github.akotu235.Ratingoo.model.Category;
 import io.github.akotu235.Ratingoo.model.Item;
+import io.github.akotu235.Ratingoo.validator.ValidCategory;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 public class ItemWriteModel {
     @NotBlank(message = "Name cannot be empty.")
     private String name;
-    @NotNull(message = "Category cannot be null.")
+    @ValidCategory
     private Category category;
 
     public String getName() {
