@@ -12,6 +12,8 @@ public class Vote {
     @JoinColumn(name = "item_id")
     private Item item;
     private String secretCode;
+    @Embedded
+    private final Audit audit = new Audit();
 
     Vote() {
     }

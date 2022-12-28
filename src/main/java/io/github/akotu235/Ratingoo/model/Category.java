@@ -14,7 +14,8 @@ public class Category {
     private String name;
     @OneToMany(mappedBy = "category")
     private Set<Item> Items;
-
+    @Embedded
+    private final Audit audit = new Audit();
 
     Category() {
     }

@@ -17,7 +17,8 @@ public class Item {
     private int counter;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "item")
     private Set<Vote> votes;
-
+    @Embedded
+    private final Audit audit = new Audit();
 
     Item() {
     }
