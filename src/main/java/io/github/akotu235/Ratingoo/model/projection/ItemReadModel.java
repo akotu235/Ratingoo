@@ -6,14 +6,14 @@ import io.github.akotu235.Ratingoo.model.Item;
 public class ItemReadModel {
     private int id;
     private String name;
-    private int categoryId;
+    private String category;
 
     private int counter;
 
     public ItemReadModel(final Item source) {
         this.id = source.getId();
         this.name = source.getName();
-        this.categoryId = source.getCategory().getId();
+        this.category = source.getCategory().getName();
         this.counter = source.getCounter();
     }
 
@@ -33,12 +33,12 @@ public class ItemReadModel {
         this.name = name;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public String getCategoryName() {
+        return category;
     }
 
-    public void setCategoryId(final int categoryId) {
-        this.categoryId = categoryId;
+    public void setCategoryName(final String categoryName) {
+        this.category = categoryName;
     }
 
     public int getCounter() {
