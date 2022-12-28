@@ -39,7 +39,6 @@ class ItemController {
     @PostMapping("/items")
     ResponseEntity<ItemReadModel> createItem(@RequestBody @Valid ItemWriteModel item) {
         ItemReadModel result = itemService.createItem(item);
-        //TODO: brak informacji o błędzie..
         return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentContextPath().path("/item/" + result.getId()).build().toUri()).body(result);
     }
 

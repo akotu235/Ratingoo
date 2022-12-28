@@ -20,11 +20,11 @@ public class SecretCode {
         this.secretCode = secretCode;
     }
 
-    boolean isActive() {
+    public boolean isActive() {
         return active;
     }
 
-    void setActive(final boolean active) {
+    public void setActive(final boolean active) {
         this.active = active;
     }
 }
