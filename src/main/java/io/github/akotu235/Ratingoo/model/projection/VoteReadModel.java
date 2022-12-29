@@ -1,17 +1,17 @@
 package io.github.akotu235.Ratingoo.model.projection;
 
 public class VoteReadModel {
-    private VoteStatus status;
+    private Status status;
 
-    public VoteReadModel(final VoteStatus status) {
+    public VoteReadModel(final Status status) {
         this.status = status;
     }
 
-    public VoteStatus getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(final VoteStatus status) {
+    public void setStatus(final Status status) {
         this.status = status;
     }
 }

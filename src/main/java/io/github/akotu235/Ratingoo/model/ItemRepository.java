@@ -13,6 +13,8 @@ public interface ItemRepository {
 
     Optional<Item> findById(Integer id);
 
+    List<Item> findByName(String name);
+
     boolean existsById(Integer id);
 
     Item save(Item entity);

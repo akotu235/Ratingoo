@@ -7,7 +7,6 @@ public class ItemReadModel {
     private int id;
     private String name;
     private String category;
-
     private int counter;
 
     public ItemReadModel(final Item source) {

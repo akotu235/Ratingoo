@@ -2,7 +2,7 @@ package io.github.akotu235.Ratingoo.logic;
 
 import io.github.akotu235.Ratingoo.model.*;
 import io.github.akotu235.Ratingoo.model.projection.VoteReadModel;
-import io.github.akotu235.Ratingoo.model.projection.VoteStatus;
+import io.github.akotu235.Ratingoo.model.projection.Status;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +24,7 @@ public class VoteService {
         item.addVote();
         voteRepository.save(new Vote(item, secretCode));
         secretCodeRepository.findBySecretCode(secretCode).ifPresent(code -> code.setActive(false));
-        return new VoteReadModel(VoteStatus.SUCCESS);
+        return new VoteReadModel(Status.SUCCESS);
     }
 }
 

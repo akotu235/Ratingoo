@@ -1,6 +1,6 @@
 package io.github.akotu235.Ratingoo.model.projection;
 
-public enum VoteStatus {
+public enum Status {
     SUCCESS,
     FAIL
 }
