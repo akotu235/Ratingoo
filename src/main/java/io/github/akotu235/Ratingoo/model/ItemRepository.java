@@ -10,6 +10,7 @@ public interface ItemRepository {
     List<Item> findAll();
 
     Page<Item> findAll(Pageable page);
+    List<Item> findAllByCategory(Category category);
 
     Optional<Item> findById(Integer id);
 
