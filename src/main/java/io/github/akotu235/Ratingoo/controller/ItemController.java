@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*")
 @RestController
+@RequestMapping("/items")
 class ItemController {
     private final ItemRepository repository;
     private final ItemService itemService;
@@ -27,17 +28,17 @@ class ItemController {
         this.itemService = itemService;
     }
 
-    @GetMapping(value = "/items", params = {"!sort", "!page", "!size"})
+    @GetMapping(params = {"!sort", "!page", "!size"})
     ResponseEntity<List<ItemReadModel>> readAllTasks() {
         return ResponseEntity.ok(repository.findAll().stream().map(ItemReadModel::new).collect(Collectors.toList()));
     }
 
-    @GetMapping("/items")
+    @GetMapping
     ResponseEntity<List<ItemReadModel>> readAllTasks(Pageable page) {
         return ResponseEntity.ok(repository.findAll(page).getContent().stream().map(ItemReadModel::new).collect(Collectors.toList()));
     }
 
-    @PostMapping("/items")
+    @PostMapping
     ResponseEntity<ItemReadModel> createItem(@RequestBody @Valid ItemWriteModel item) {
         ItemReadModel result = itemService.createItem(item);
         return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentContextPath().path("/item" + result.getId()).build().toUri()).body(result);

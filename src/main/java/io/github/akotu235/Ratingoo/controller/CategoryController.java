@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*")
 @RestController
+@RequestMapping("/categories")
 class CategoryController {
     private final CategoryRepository categoryRepository;
     private final CategoryService categoryService;
@@ -24,17 +25,17 @@ class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping(value = "/categories", params = {"!sort", "!page", "!size"})
+    @GetMapping(params = {"!sort", "!page", "!size"})
     ResponseEntity<List<CategoryReadModel>> readAllTasks() {
         return ResponseEntity.ok(categoryRepository.findAll().stream().map(CategoryReadModel::new).collect(Collectors.toList()));
     }
 
-    @GetMapping("/categories")
+    @GetMapping
     ResponseEntity<List<CategoryReadModel>> readAllTasks(Pageable page) {
         return ResponseEntity.ok(categoryRepository.findAll(page).getContent().stream().map(CategoryReadModel::new).collect(Collectors.toList()));
     }
 
-    @PostMapping("/categories")
+    @PostMapping
     ResponseEntity<CategoryReadModel> addCategory(@RequestBody @Valid CategoryWriteModel category) {
         CategoryReadModel result = categoryService.createCategory(category);
         return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentContextPath().path("/categories").build().toUri()).body(result);

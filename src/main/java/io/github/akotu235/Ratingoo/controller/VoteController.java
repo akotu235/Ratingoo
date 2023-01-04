@@ -6,13 +6,11 @@ import io.github.akotu235.Ratingoo.model.projection.VoteWriteModel;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
 @RestController
+@RequestMapping("/vote")
 class VoteController {
     private final VoteService voteService;
 
@@ -21,7 +19,7 @@ class VoteController {
     }
 
     @Transactional
-    @PostMapping("/vote")
+    @PostMapping
     ResponseEntity<VoteReadModel> addVote(@RequestBody @Valid VoteWriteModel vote) {
         VoteReadModel result = voteService.addVote(vote.getItemId(), vote.getSecretCode());
         return ResponseEntity.ok(result);
