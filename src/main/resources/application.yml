@@ -1,4 +1,6 @@
 spring:
+  main:
+    banner-mode: off
   h2:
     console:
       enabled: true
@@ -9,5 +11,7 @@ spring:
   datasource:
     url: 'jdbc:h2:file:./items-db'
 server:
+  port: 2323
   error:
     include-binding-errors: always
+
