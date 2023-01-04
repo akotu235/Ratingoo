@@ -16,7 +16,6 @@ public class CategoryWriteModel {
         this.name = name;
     }
 
-    //TODO:
     public Category toCategory(String name) {
         return new Category(name);
     }

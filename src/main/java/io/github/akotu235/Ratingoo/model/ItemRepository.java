@@ -17,5 +17,7 @@ public interface ItemRepository {
 
     boolean existsById(Integer id);
 
+    boolean existsByNameAndCategory_Id(String name, Integer categoryId);
+
     Item save(Item entity);
 }

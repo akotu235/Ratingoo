@@ -4,7 +4,6 @@ import io.github.akotu235.Ratingoo.model.SecretCodeRepository;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-
 public class SecretCodeValidator implements ConstraintValidator<ValidSecretCode, String> {
 
     private final SecretCodeRepository secretCodeRepository;

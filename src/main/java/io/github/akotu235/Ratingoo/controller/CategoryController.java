@@ -1,6 +1,5 @@
 package io.github.akotu235.Ratingoo.controller;
 
-
 import io.github.akotu235.Ratingoo.logic.CategoryService;
 import io.github.akotu235.Ratingoo.model.CategoryRepository;
 import io.github.akotu235.Ratingoo.model.projection.CategoryReadModel;
@@ -38,7 +37,7 @@ class CategoryController {
     @PostMapping("/categories")
     ResponseEntity<CategoryReadModel> addCategory(@RequestBody @Valid CategoryWriteModel category) {
         CategoryReadModel result = categoryService.createCategory(category);
-        return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentContextPath().path("/categories/").build().toUri()).body(result);
+        return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentContextPath().path("/categories").build().toUri()).body(result);
     }
 
 }

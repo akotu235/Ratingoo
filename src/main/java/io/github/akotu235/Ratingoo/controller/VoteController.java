@@ -1,6 +1,5 @@
 package io.github.akotu235.Ratingoo.controller;
 
-
 import io.github.akotu235.Ratingoo.logic.VoteService;
 import io.github.akotu235.Ratingoo.model.projection.VoteReadModel;
 import io.github.akotu235.Ratingoo.model.projection.VoteWriteModel;

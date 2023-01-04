@@ -17,15 +17,15 @@ public class CategoryService {
     }
 
     public CategoryReadModel createCategory(CategoryWriteModel source) {
-        Category result = categoryRepository.findByName(source.getName()).orElseGet(()->categoryRepository.save(source.toCategory(source.getName())));
+        Category result = categoryRepository.findByName(source.getName()).orElseGet(() -> categoryRepository.save(source.toCategory(source.getName())));
         return new CategoryReadModel(result);
     }
 
-    public Optional<Category> getCategory(String name){
+    public Optional<Category> getCategory(String name) {
         return categoryRepository.findByName(name);
     }
 
-    public Optional<Category> getCategory(int id){
+    public Optional<Category> getCategory(int id) {
         return categoryRepository.findById(id);
     }
 }

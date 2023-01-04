@@ -1,6 +1,5 @@
 package io.github.akotu235.Ratingoo.controller;
 
-
 import io.github.akotu235.Ratingoo.logic.ItemService;
 import io.github.akotu235.Ratingoo.model.ItemRepository;
 import io.github.akotu235.Ratingoo.model.projection.ItemReadModel;
@@ -39,7 +38,6 @@ class ItemController {
     @PostMapping("/items")
     ResponseEntity<ItemReadModel> createItem(@RequestBody @Valid ItemWriteModel item) {
         ItemReadModel result = itemService.createItem(item);
-        return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentContextPath().path("/item/" + result.getId()).build().toUri()).body(result);
+        return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentContextPath().path("/item" + result.getId()).build().toUri()).body(result);
     }
-
 }

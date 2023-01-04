@@ -4,7 +4,6 @@ import io.github.akotu235.Ratingoo.model.ItemRepository;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-
 public class ItemIdValidator implements ConstraintValidator<ValidItemId, Integer> {
 
     private final ItemRepository itemRepository;

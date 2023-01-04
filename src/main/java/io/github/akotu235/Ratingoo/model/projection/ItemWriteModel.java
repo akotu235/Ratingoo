@@ -23,7 +23,7 @@ public class ItemWriteModel {
         return category;
     }
 
-    public void setCategory(final Category category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
